@@ -1,0 +1,27 @@
+# Environment variables - NEVER upload this, contains sensitive credentials
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+.venv/
+virtual/
+env/
+
+# Django
+*.log
+db.sqlite3
+staticfiles/
+media/
+
+# Docker
+.dockerignore
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+desktop.ini
