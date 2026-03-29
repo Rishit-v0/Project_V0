@@ -34,3 +34,17 @@ class Product(models.Model):
     
     class Meta:
         ordering = ['-created_at']
+        indexes = [
+            # Single column index — speeds up searching products by name
+            # db_index=True on the field itself does the same for single columns
+            # but Meta indexes gives you more control and composite index support
+            models.Index(fields=['name'], name='idx_name'),
+            
+            # Single column index — we almost always filter is_active=True
+            models.Index(fields=['is_active'], name='idx_product_is_active'),
+            
+            # Composite index — covers our most common query pattern:
+            # Product.objects.filter(is_active=True, created_by=user)
+            # The order here matches the order you filter in get_queryset()
+            models.Index(fields=['is_active', 'created_by'], name='idx_product_active_created_by'),
+        ]
