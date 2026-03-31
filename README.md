@@ -17,11 +17,12 @@ Production-style REST API built with Django, DRF, PostgreSQL, and Docker.
 - Raw SQL + Django ORM comparison
 
 ## Run It
-\`\`\`bash
+```bash
+
 cp .env.example .env   # fill in your values
 docker-compose up --build
 docker-compose exec web python manage.py createsuperuser
-\`\`\`
+```
 
 ## API Endpoints
 | Method | Endpoint | Auth | Description |
